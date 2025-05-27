@@ -1,33 +1,52 @@
+// const Fname="abdul"
+// const lastname= "Rahman"
 
-const arr=[1, 2, 3, 4, 5]
-const filtereven =()=>{
-  const result= arr.filter((num)=> num % 2==0)
-    return result
+// const addname=()=>{
+//   return `${Fname} ${lastname}`
+// }
+// //console.log(addname())
+
+// const arry1=[-3, -2, -1]
+// const arry2=[0,1,2,3,1]
+
+// const addArray=()=>{
+//   const result=[...arry1,...arry2]
+//   return result
+// }
+// //console.log(addArray())
+
+// const addArrayV2=()=>[...arry1,...arry2]
+//console.log(addArrayV2())
+
+const userData={
+  name:"tripal",
+  email:"email@gmail.com",
+  phone:12345,
+  hasPassedOut:false,
+  occupation:undefined
 }
-console.log(filtereven())
+// const filterFalsyValue=()=>{
+//   let finalUserData={}
+//   for(let key in userData){
 
-const UserData=[
-  {id:1, name:"eljan",gender:"male",age:19,occupation:"web dev"},
-  {id:2, name:"subash",gender:"male",age:17,occupation:"web dev"},
-  {id:3, name:"sumit",gender:"male",age:19,occupation:"designer"},
-  {id:4, name:"gyanisha",gender:"female",age:35,occupation:undefined},
-  {id:5, name:"nishum",gender:"female",age:18,occupation:undefined},
-]
-const response={
-  status:200,
-  message:"UserData phased successfully",
-  data:UserData
+//     if(!userData[key]){
+//       finalUserData={...finalUserData,[key]:userData[key]}
+//     }
+//   }
+//   return finalUserData
+// }
+// console.log(filterFalsyValue())
+
+const apiResponse={
+  status:404,
+  message:"Not FOund",
+  data:{}
 }
-
-const FetchUserNames=()=>{
-  if(response.status === 200){
-   const result = response.data
-   .filter((user)=>user.occupation !== undefined || user.age > 30)
-   .map((user)=>user.name)
-   return result
+const thisIsFinalUserData={}
+const poularData=()=>{
+  if (apiResponse.status===200 && apiResponse.data){
+    thisIsFinalUserData=apiResponse.data
   }else{
-    const message="APT Fetch failes!!"
-    return message
+    thisIsFinalUserData=userData
   }
 }
-console.log(FetchUserNames())
